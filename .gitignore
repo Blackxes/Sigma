@@ -1,9 +1,9 @@
-.vs/
+/.vs/
 **/*.user
 **/*.filters
-bin/
-bin-int/
+/bin/
+/bin-int/
 
 # SFML
-**/vendor/SFML/doc/
-**/vendor/SFML/examples/
+/Sigma/vendor/SFML/doc/
+/Sigma/vendor/SFML/examples/
