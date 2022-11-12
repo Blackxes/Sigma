@@ -6,6 +6,9 @@
 #include <vector>
 //#include <unordered_map>
 
+#include <SFML\Window.hpp>
+#include <SFML\Graphics.hpp>
+
 #ifdef SG_PLATFORM_WINDOWS
 	#ifdef SG_BUILD_DLL
 		#define SIGMA_API __declspec(dllexport)

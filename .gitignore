@@ -3,3 +3,7 @@
 **/*.filters
 bin/
 bin-int/
+
+# SFML
+**/vendor/SFML/doc/
+**/vendor/SFML/examples/
