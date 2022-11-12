@@ -107,16 +107,22 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\EventHandler\Event.h" />
+    <ClInclude Include="src\Core\Application.h" />
+    <ClInclude Include="src\Core\Base.h" />
+    <ClInclude Include="src\Core\Layer.h" />
+    <ClInclude Include="src\Events\Event.h" />
     <ClInclude Include="src\EventHandler\EventHandler.h" />
     <ClInclude Include="src\EventHandler\EventType.h" />
-    <ClInclude Include="src\EventHandler\Events\MouseLeftClickEvent.h" />
-    <ClInclude Include="src\EventHandler\Events\MouseRightClickEvent.h" />
+    <ClInclude Include="src\Events\MouseLeftClickEvent.h" />
+    <ClInclude Include="src\Events\MouseRightClickEvent.h" />
     <ClInclude Include="src\EventHandler\MouseEvents.h" />
     <ClInclude Include="src\Sigma.h" />
     <ClInclude Include="src\sgpch.h" />
+    <ClInclude Include="src\Window\RenderWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Application.cpp" />
+    <ClCompile Include="src\Core\EntryPoint.cpp" />
     <ClCompile Include="src\Sigma.cpp" />
     <ClCompile Include="src\sgpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
