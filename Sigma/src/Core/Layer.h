@@ -4,14 +4,15 @@
 
 namespace Sigma
 {
-	class Layer
+	class SIGMA_API Layer
 	{
 	public:
-		virtual ~Layer();
+		virtual ~Layer() = 0;
 
-		virtual void onAttach();
-		virtual void onDetach();
-		virtual void onUpdate();
-		virtual void onEvent(Event& evt);
+		//virtual void OnAttach();
+		//virtual void OnDetach();
+		virtual void OnUpdate() = 0;
+		//virtual void OnEvent(Event& evt);
 	};
+
 }

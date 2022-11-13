@@ -1,11 +1,29 @@
 
 #include <Sigma.h>
+#include <Core\EntryPoint.h>
 
-int main() {
+//PrintMessage("My Wonderful Penis is wonderful!");
+//RenderWindow();
 
-	PrintMessage("My Wonderful Penis is wonderful!");
+class Sandbox : public Sigma::Application
+{
+public:
+	Sandbox(const Sigma::ApplicationCreationConfiguration& creationConfiguration)
+	{
+		std::cout << "Sandbox Application: " << creationConfiguration.title << std::endl;
+	}
 
-	RenderWindow();
+	~Sandbox()
+	{
+	}
+};
 
-	return 0;
+Sigma::Application* Sigma::CreateApplication(Sigma::ApplicationCommandArgs commandArgs)
+{
+	Sigma::ApplicationCreationConfiguration config;
+	config.dimensions = { 1200, 720 };
+	config.initialPosition = { 0, 0 };
+	config.title = "My super Sandbox";
+
+	return new Sandbox(config);
 }

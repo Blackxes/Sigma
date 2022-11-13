@@ -39,9 +39,9 @@ project "Sigma"
 
 		defines { "SG_PLATFORM_WINDOWS", "SG_BUILD_DLL", "SFML_STATIC" }
 
-		postbuildcommands
+		postbuildcommands 
 		{
-			("{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			"{COPYDIR} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox/"
 		}
 	
 	filter "configurations:Debug"
@@ -120,8 +120,8 @@ project "Sandbox"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "Off"
 		systemversion "latest"
+		staticruntime "Off"
 
 		defines { "SG_PLATFORM_WINDOWS" }
 	

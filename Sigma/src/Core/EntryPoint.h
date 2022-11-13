@@ -1,7 +1,9 @@
+#pragma once
+
 #include "sgpch.h"
 #include "Application.h"
 
-extern Sigma::Application* Sigma::CreateApplication(Sigma::ApplicationCommandArgs);
+extern Sigma::Application* Sigma::CreateApplication(Sigma::ApplicationCommandArgs commandArgs);
 
 int main(int argc, char** argv)
 {
@@ -13,4 +15,6 @@ int main(int argc, char** argv)
 
 	// Shutdown the application and close the window
 	delete app;
+
+	return 0;
 }

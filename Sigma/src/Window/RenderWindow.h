@@ -1,8 +1,8 @@
-#pragma once
-
-class RenderWindow
-{
-public:
-	RenderWindow();
-	~RenderWindow();
-};
+//#pragma once
+//
+//class RenderWindow
+//{
+//public:
+//	RenderWindow();
+//	~RenderWindow();
+//};

@@ -2,6 +2,11 @@
 
 #include "sgpch.h"
 
-void SIGMA_API PrintMessage(const char* message);
+#include "Core\Base.h"
+#include "Core\Application.h"
 
-void SIGMA_API RenderWindow();
+#include "Events\Event.h"
+
+//void SIGMA_API PrintMessage(const char* message);
+
+//void SIGMA_API RenderWindow();
