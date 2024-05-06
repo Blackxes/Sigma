@@ -3,7 +3,7 @@
 
 int main() {
 
-	PrintMessage("My Wonderful Penis is wonderful!");
+	PrintMessage("Wupp Wupp!");
 
 	RenderWindow();
 
