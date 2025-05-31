@@ -5,7 +5,8 @@ workspace "Sigma"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["SFML"] = "%{wks.location}/Sigma/vendor/SFML/include"
+IncludeDir["Glad"] = "%{wks.location}/Sigma/vendor/Glad/include"
+IncludeDir["glfw"] = "%{wks.location}/Sigma/vendor/glfw/include"
 
 project "Sigma"
 	location "Sigma"
@@ -24,20 +25,21 @@ project "Sigma"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{IncludeDir.SFML}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glfw}"
 	}
 
-	libdirs { "%{prj.name}/vendor/SFML/lib" }
+	libdirs { "%{prj.name}/vendor/glfw/lib-vc2022" }
 
 	pchheader "sgpch.h"
 	pchsource "Sigma/src/sgpch.cpp"
 	
 	filter "system:windows"
-		cppdialect "C++17"
+		cppdialect "C++23"
 		systemversion "latest"
-		staticruntime "Off"
+		staticruntime "On"
 
-		defines { "SG_PLATFORM_WINDOWS", "SG_BUILD_DLL", "SFML_STATIC" }
+		defines { "SG_PLATFORM_WINDOWS", "SG_BUILD_DLL" }
 
 		postbuildcommands 
 		{
@@ -45,53 +47,25 @@ project "Sigma"
 		}
 	
 	filter "configurations:Debug"
-		defines { "SG_DEBUG" }
+		defines "SG_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 		links
 		{
-			"sfml-main-d.lib",
-			"sfml-window-s-d.lib",
-			"sfml-graphics-s-d.lib",
-			"sfml-audio-s-d.lib",
-			"sfml-network-s-d.lib",
-			"sfml-system-s-d.lib",
-			"opengl32.lib",
-			"freetype.lib",
-			"winmm.lib",
-			"gdi32.lib",
-			"openal32.lib",
-			"flac.lib",
-			"vorbisenc.lib",
-			"vorbisfile.lib",
-			"vorbis.lib",
-			"ogg.lib",
-			"ws2_32.lib"
+			"glfw3.lib",
+			"opengl32.lib"
 		}
 
 	filter "configurations:Release"
-		defines { "SG_RELEASE" }
+		defines "SG_RELEASE"
+		buildoptions "/MDd"
 		optimize "On"
 
 		links
 		{
-			"sfml-main.lib",
-			"sfml-window-s.lib",
-			"sfml-graphics-s.lib",
-			"sfml-audio-s.lib",
-			"sfml-network-s.lib",
-			"sfml-system-s.lib",
-			"opengl32.lib",
-			"freetype.lib",
-			"winmm.lib",
-			"gdi32.lib",
-			"openal32.lib",
-			"flac.lib",
-			"vorbisenc.lib",
-			"vorbisfile.lib",
-			"vorbis.lib",
-			"ogg.lib",
-			"ws2_32.lib"
+			"glfw3.lib",
+			"opengl32.lib"
 		}
 
 project "Sandbox"
@@ -110,13 +84,12 @@ project "Sandbox"
 	
 	includedirs
 	{
-		"%{wks.location}/Sigma/src",
-		"%{IncludeDir.SFML}"
+		"%{wks.location}/Sigma/src"
 	}
 
 	links { "Sigma" }
 
-	libdirs { "Sigma/vendor/SFML/lib" }
+	libdirs { "%{prj.name}/vendor/glfw/lib-vc2022" }
 	
 	filter "system:windows"
 		cppdialect "C++17"
@@ -126,50 +99,23 @@ project "Sandbox"
 		defines { "SG_PLATFORM_WINDOWS" }
 	
 	filter "configurations:Debug"
-		defines { "SG_DEBUG" }
+		defines "SG_DEBUG"
+		buildoptions "/MDd"
+		symbols "On"
 
 		links
 		{
-			"sfml-main-d.lib",
-			"sfml-window-s-d.lib",
-			"sfml-graphics-s-d.lib",
-			"sfml-audio-s-d.lib",
-			"sfml-network-s-d.lib",
-			"sfml-system-s-d.lib",
-			"opengl32.lib",
-			"freetype.lib",
-			"winmm.lib",
-			"gdi32.lib",
-			"openal32.lib",
-			"flac.lib",
-			"vorbisenc.lib",
-			"vorbisfile.lib",
-			"vorbis.lib",
-			"ogg.lib",
-			"ws2_32.lib"
+			"glfw3.lib",
+			"opengl32.lib"
 		}
 
 	filter "configurations:Release"
 		defines { "SG_RELEASE" }
+		buildoptions "/MDd"
 		optimize "On"
 
 		links
 		{
-			"sfml-main.lib",
-			"sfml-window-s.lib",
-			"sfml-graphics-s.lib",
-			"sfml-audio-s.lib",
-			"sfml-network-s.lib",
-			"sfml-system-s.lib",
-			"opengl32.lib",
-			"freetype.lib",
-			"winmm.lib",
-			"gdi32.lib",
-			"openal32.lib",
-			"flac.lib",
-			"vorbisenc.lib",
-			"vorbisfile.lib",
-			"vorbis.lib",
-			"ogg.lib",
-			"ws2_32.lib"
+			"glfw3.lib",
+			"opengl32.lib"
 		}

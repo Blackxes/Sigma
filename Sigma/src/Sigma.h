@@ -1,3 +1,7 @@
+/**
+ * @File This file is part of the Sigma game engine
+ */
+
 #pragma once
 
 #include "sgpch.h"
