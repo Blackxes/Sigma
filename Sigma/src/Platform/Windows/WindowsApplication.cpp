@@ -2,7 +2,7 @@
  * @File This file is part of the Sigma game engine
  */
 
-//#include "sgpch.h"
+#include "sgpch.h"
 //#include "Core/Base.h"
 //#include "Platform/Windows/WindowsWindow.h"
 //#include "WindowsApplication.h"

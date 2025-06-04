@@ -4,7 +4,6 @@
 //#include <glad/glad.h>
 //#include <GLFW/glfw3.h>
 
-/*
 
 #include <memory>
 #include <iostream>
@@ -13,7 +12,7 @@
 #include <vector>
 #include <functional>
 
-
+/*
 // Platform
 #ifdef _WIN32
     #ifdef _WIN64
