@@ -56,14 +56,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>sgpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>SG_PLATFORM_WINDOWS;SG_BUILD_DLL;SG_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\Glad\include;vendor\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Development\__Intern\sigma\Sigma\vendor\glfw\include;C:\Development\__Intern\sigma\Sigma\vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -72,8 +71,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\glfw\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Sigma\Sigma.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>C:\Development\__Intern\sigma\Sigma\vendor\glfw\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Sigma\Sigma.dll ..\bin\Debug-windows-x86_64\Sandbox</Command>
@@ -81,17 +80,16 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>sgpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>SG_PLATFORM_WINDOWS;SG_BUILD_DLL;SG_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\Glad\include;vendor\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Development\__Intern\sigma\Sigma\vendor\glfw\include;C:\Development\__Intern\sigma\Sigma\vendor\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
@@ -101,35 +99,37 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>vendor\glfw\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\bin\Release-windows-x86_64\Sigma\Sigma.lib</ImportLibrary>
+      <AdditionalLibraryDirectories>C:\Development\__Intern\sigma\Sigma\vendor\glfw\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Sigma\Sigma.dll ..\bin\Release-windows-x86_64\Sandbox</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Container\Vector2D.h" />
     <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Core\Base.h" />
     <ClInclude Include="src\Core\EntryPoint.h" />
     <ClInclude Include="src\Core\Layer.h" />
+    <ClInclude Include="src\Core\RenderWindow.h" />
     <ClInclude Include="src\Events\Event.h" />
-    <ClInclude Include="src\Events\MouseLeftClickEvent.h" />
-    <ClInclude Include="src\Events\MouseRightClickEvent.h" />
+    <ClInclude Include="src\Platform\Windows\Events\MouseLeftClickEvent.h" />
+    <ClInclude Include="src\Platform\Windows\Events\MouseRightClickEvent.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsApplication.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sigma.h" />
-    <ClInclude Include="src\Window\RenderWindow.h" />
     <ClInclude Include="src\sgpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Window\RenderWindow.cpp" />
     <ClCompile Include="src\Core\Application.cpp" />
+    <ClCompile Include="src\Events\Event.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsApplication.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsEntryPoint.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sigma.cpp" />
-    <ClCompile Include="src\sgpch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Sigma.licenseheader" />
+    <ClCompile Include="src\sgpch.cpp" />
+    <ClCompile Include="vendor\Glad\src\glad.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

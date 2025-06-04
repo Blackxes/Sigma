@@ -1,29 +1,32 @@
-
 #include <Sigma.h>
 #include <Core\EntryPoint.h>
 
-//PrintMessage("My Wonderful Penis is wonderful!");
-//RenderWindow();
-
+/*
 class Sandbox : public Sigma::Application
 {
 public:
-	Sandbox(const Sigma::ApplicationCreationConfiguration& creationConfiguration)
-	{
-		std::cout << "Sandbox Application: " << creationConfiguration.title << std::endl;
-	}
+    Sandbox(const Sigma::ApplicationCreationConfiguration& creationConfiguration)
+    {
+        std::cout << "Sandbox Application: " << creationConfiguration.title << std::endl;
+    }
 
-	~Sandbox()
-	{
-	}
+    ~Sandbox()
+    {
+    }
 };
 
-Sigma::Application* Sigma::CreateApplication(Sigma::ApplicationCommandArgs commandArgs)
+Sigma::Shared<Sigma::Application> Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& commandArgs)
 {
-	Sigma::ApplicationCreationConfiguration config;
-	config.dimensions = { 1200, 720 };
-	config.initialPosition = { 0, 0 };
-	config.title = "My super Sandbox";
+    Sigma::ApplicationCreationConfiguration config;
+    config.dimensions = { 1200, 720 };
+    config.title = "My super Sandbox";
+    config.fullScreen = false;
 
-	return new Sandbox(config);
+    return Sigma::MakeShared<Sandbox>(config);
+}
+*/
+
+int main()
+{
+    return 0;
 }

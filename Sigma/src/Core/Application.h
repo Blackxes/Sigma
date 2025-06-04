@@ -1,58 +1,73 @@
+/**
+ * @File This file is part of the Sigma game engine
+ */
+
 #pragma once
 
-#include "Sigma.h"
-//#include "Layer.h"
-
-int main(int argc, char** argv);
-
-template class SIGMA_API sf::Vector2<int>;
-template class SIGMA_API sf::Vector2<unsigned int>;
+//#include "Core/Base.h"
+//#include "Core/RenderWindow.h"
+//#include "Container/Vector2D.h"
 
 namespace Sigma
 {
+    /*
+    class RenderWindow;
+    class Application;
 
-	struct SIGMA_API ApplicationCommandArgs
-	{
-		int argumentsCount = 0;
-		char** arguments = nullptr;
-	};
+    struct SIGMA_API ApplicationCommandArgs
+    {
+        int argumentsCount = 0;
+        char** arguments = nullptr;
+    };
 
-	struct SIGMA_API ApplicationCreationConfiguration
-	{
-		const char* title = "My first Sigma application";
-		sf::Vector2u dimensions = { 1200, 720 };
-		sf::Vector2i initialPosition = { 0, 0 };
-	};
+    struct SIGMA_API ApplicationCreationConfiguration
+    {
+        const char* title = "My first Sigma application";
+        Vector2di dimensions = { 1200, 720 };
+        bool fullScreen = false;
+        const char* applicationDirectory = "";
+    };
 
-	class SIGMA_API Application
-	{
-	public:
-		Application() = default;
-		Application(const ApplicationCreationConfiguration& creationConfiguration);
-		virtual ~Application();
+    // Defined in client application
+    std::shared_ptr<Application> SIGMA_API CreateApplication(const ApplicationCommandArgs& commandArgs);
 
-		static Application& get()
-		{
-			return *m_instance;
-		}
+    class SIGMA_API Application
+    {
+    public:
+        Application() = default;
+        Application(const ApplicationCreationConfiguration& creationConfiguration);
+        virtual ~Application();
 
-		//void pushLayer(Layer* layer);
+        virtual bool Init() = 0;
+        virtual bool Run() = 0;
+        virtual bool Shutdown() = 0;
 
-	private:
-		friend int ::main(int argc, char** argv);
+        /// <summary>
+        /// Returns the application instance. CreateApplicationFromGlobal needs to be called prior
+        /// The reason is to have a separation between creation and getting the application instance
+        /// </summary>
+        /// <returns>\ref Sigma::Application</returns>
+        static std::shared_ptr<Application> Get()
+        {
+            if (m_instance == nullptr) {
+                throw "Call Application::CreateApplication before using this function.";
+            }
 
-		static Application* m_instance;
-		sf::RenderWindow* m_window;
+            return m_instance;
+        }
 
-		ApplicationCreationConfiguration creationCommands;
+        static std::shared_ptr<Application> CreateApplicationFromGlobal(const ApplicationCommandArgs& commandArgs)
+        {
+            m_instance = CreateApplication(commandArgs);
 
-		// Main application live
-		bool init();
-		bool run();
-		bool shutdown();
-	};
+            return m_instance;
+        }
 
-	// Defined in client application
-	Application* CreateApplication(ApplicationCommandArgs commandArgs);
-
+    protected:
+        bool m_initialized = false;
+        static inline std::shared_ptr<Application> m_instance;
+        ApplicationCreationConfiguration m_creationConfiguration;
+        std::shared_ptr<RenderWindow> m_window = nullptr;
+    };
+    */
 }

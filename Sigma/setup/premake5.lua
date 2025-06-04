@@ -1,6 +1,7 @@
 workspace "Sigma"
 	architecture "x64"
 	configurations { "Debug", "Release" }
+	startproject "Sigma"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -20,6 +21,7 @@ project "Sigma"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/Glad/src/glad.c"
 	}
 
 	includedirs
@@ -29,6 +31,9 @@ project "Sigma"
 		"%{IncludeDir.glfw}"
 	}
 
+	filter "files:glad.c"
+    	flags {"NoPCH"}
+
 	libdirs { "%{prj.name}/vendor/glfw/lib-vc2022" }
 
 	pchheader "sgpch.h"
@@ -37,7 +42,7 @@ project "Sigma"
 	filter "system:windows"
 		cppdialect "C++23"
 		systemversion "latest"
-		staticruntime "On"
+		staticruntime "Off"
 
 		defines { "SG_PLATFORM_WINDOWS", "SG_BUILD_DLL" }
 

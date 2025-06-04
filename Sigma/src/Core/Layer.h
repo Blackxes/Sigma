@@ -1,9 +1,14 @@
+/**
+ * @File This file is part of the Sigma game engine
+ */
+
 #pragma once
 
-#include "../Events/Event.h"
+//#include "Core/Base.h"
 
 namespace Sigma
 {
+	/*
 	class SIGMA_API Layer
 	{
 	public:
@@ -14,5 +19,5 @@ namespace Sigma
 		virtual void OnUpdate() = 0;
 		//virtual void OnEvent(Event& evt);
 	};
-
+	*/
 }
