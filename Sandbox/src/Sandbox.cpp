@@ -1,5 +1,4 @@
-#include <Sigma.h>
-#include <Core\EntryPoint.h>
+//#include <Core\EntryPoint.h>
 
 /*
 class Sandbox : public Sigma::Application
@@ -25,8 +24,3 @@ Sigma::Shared<Sigma::Application> Sigma::CreateApplication(const Sigma::Applicat
     return Sigma::MakeShared<Sandbox>(config);
 }
 */
-
-int main()
-{
-    return 0;
-}

@@ -1,6 +1,7 @@
 project "Sigma"
-	kind "StaticLib"
+	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
@@ -14,39 +15,30 @@ project "Sigma"
 		"src/**.cpp",
         "vendor/stb_image/**.h",
         "vendor/stb_image/**.cpp",
-        "Sigma.licenseheader"
 	}
 
 	includedirs
 	{
         "src",
-        "%{Dependencies.GLFW}",
         "%{Dependencies.Glad}",
+        "%{Dependencies.GLFW}",
         "%{Dependencies.stb_image}",
 	}
 
     links
     {
-        "GLFW",
         "Glad",
-        "opengl32.lib"
+		"GLFW",
+        "opengl32"
     }
 
     defines { "GLFW_INCLUDE_NONE" }
-
-	libdirs { "%{prj.name}/vendor/GLFW/lib-vc2022" }
 	
 	filter "system:windows"
 		cppdialect "C++23"
 		systemversion "latest"
-		staticruntime "Off"
 
 		defines { "SG_PLATFORM_WINDOWS", "SG_BUILD_DLL" }
-
-		postbuildcommands 
-		{
-			"{COPYDIR} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox/"
-		}
 	
 	filter "configurations:Debug"
 		defines "SG_DEBUG"
