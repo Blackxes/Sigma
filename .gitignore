@@ -1,9 +1,0 @@
-/.vs/
-**/*.user
-**/*.filters
-/bin/
-/bin-int/
-
-# SFML
-/Sigma/vendor/SFML/doc/
-/Sigma/vendor/SFML/examples/
