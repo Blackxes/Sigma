@@ -1,7 +1,2 @@
 
-#pragma once
-
-#include "Platform.hpp"
-#include <iostream>
-
-int SIGMA_API InitOpenGL();
+int __declspec(dllexport) InitOpenGL();
