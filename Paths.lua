@@ -16,9 +16,8 @@ end
 ProjectPaths = {
     ["Sigma"] = ws .. "Projects/Sigma/src/",
     ["Glad"] = ws .. "Projects/Sigma/vendor/Glad/src/",
-    ["GLFW"] = ws .. "Projects/Sigma/vendor/GLFW/src/",
     ["stb_image"] = ws .. "Projects/Sigma/vendor/stb_image/src/",
-    ["Sandbox"] = ws .. "Projects/Sandbox/src/",
+    ["Sandbox"] = ws .. "Projects/Sandbox/src/"
 }
 
 IncludePaths = {
@@ -32,8 +31,8 @@ IncludePaths = {
 OutputPaths = {}
 -- GLFW is external therefore different lib dir
 OutputPaths["GLFW"] = {
-    ["Debug"] = ws .. "Projects/Sigma/vendor/GLFW/src/Debug/",
-    ["Release"] = ws .. "Projects/Sigma/vendor/GLFW/src/Release/"
+    ["Debug"] = ws .. "Projects/Sigma/vendor/GLFW/build/src/Debug/",
+    ["Release"] = ws .. "Projects/Sigma/vendor/GLFW/build/src/Release/"
 }
 OutputPaths["Sigma"] = {
     ["Debug"] = getOutputPath("Sigma", "Debug"),
