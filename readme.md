@@ -21,6 +21,7 @@ In the future its planned to contain the following features
 
 ### Requirements
 
+- Windows
 - cmake (https://cmake.org/download/)
 - premake (https://premake.github.io/)
   - The premake executable is already contained in `vendor/premake` but in case you reaaally want to download it yourself and don't trust executable online (I wouldn't)
