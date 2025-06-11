@@ -24,4 +24,4 @@ del /s /q *.vcxproj
 del /s /q *.vcxproj.filters
 del /s /q *.vcxproj.user
 
-pause
+cd scripts\Windows

@@ -1,3 +1,7 @@
+:: Cleanup project before creating them just in case
+call CleanProject.bat
+
+:: Actual project file generation
 cd ..\..\
 call vendor\premake\premake5.exe vs2022
 
