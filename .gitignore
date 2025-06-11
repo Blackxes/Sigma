@@ -1,10 +1,24 @@
-.vs/
-**/*.user
-**/*.filters
-bin/
-bin-int/
-build
 
-# SFML
-Sigma/vendor/SFML/doc/
-Sigma/vendor/SFML/examples/
+# Builds
+bin
+bin-*
+build
+build-*
+
+# Visual Studio (Code)
+_ReSharper*
+*.sdf
+*.suo
+*.dir
+*.vcxproj*
+*.sln
+.vs
+.vscode
+CMakeSettings.json
+Win32
+x64
+Debug
+Release
+MinSizeRel
+RelWithDebInfo
+*.opensdf
