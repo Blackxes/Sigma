@@ -1,9 +1,46 @@
-After cloning the repository via your preferred method execute the `scripts/GenerateProjectfiles.bat` batch file
+# Sigma
 
-It changes the directory to the solutions root directory and starts the project file building process with premake
+A project to learn OpenGL, fancy 2D graphics and a more complex project architecture to build games in a stable, debuggable and efficient manner. <br/>
+In the future its planned to contain the following features
 
-Its executable for easier access for now lies in `vendor/premake/premake5`
-[Download](https://premake.github.io/download/) it yourself and replace the one inside that directory if you don't trust it
+- Event handling
+- Layer abstraction
+- Texture loading
+- Transitions (as in value transitions)
+  - Combined with Entity
+- Component system
+- Camera
+- Tilesystem
 
-// @todo add requirements // cmake // premake //
-// @todo add project file generation support for linux
+#### Maybe-ish
+
+- Sound
+- Controller
+
+# Installation
+
+### Requirements
+
+- cmake (https://cmake.org/download/)
+- premake (https://premake.github.io/)
+  - The premake executable is already contained in `vendor/premake` but in case you reaaally want to download it yourself and don't trust executable online (I wouldn't)
+- Visual Studio
+
+### Actual installation
+
+Clone the repository to your desired location:
+
+```
+git clone https://github.com/Blackxes/Sigma.git <directory>
+```
+
+Navigate into the `scripts/<operating_system>` directory and execute the `GenerateProjectFiles` script. <br/>
+
+Now all you need to do is opening up the `SigmaSolution.sln` and build `Sandbox`
+As soon as that succeeded you are good to go and can use Sigma all you want.
+
+Have fun!
+
+### Having issues installing? <br/>
+
+Raise an issue [here](https://github.com/Blackxes/Sigma/issues) but make sure its not already created
