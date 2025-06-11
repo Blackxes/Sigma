@@ -4,3 +4,6 @@ build
 
 .vs
 .vscode
+
+*.sln
+*.vcxproj
