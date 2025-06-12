@@ -23,16 +23,16 @@ project "Sigma"
 
     links { "glfw3.lib", "opengl32.lib" }
 
-    defines { "GLFW_INCLUDE_NONE" }
+    defines { "GLFW_INCLUDE_NONE", "SIGMA_BUILD_DLL" }
 	
 	filter "system:windows"
 		systemversion "latest"
         symbols "Off"
 
-		defines { "SG_PLATFORM_WINDOWS" }
+		defines { "SIGMA_PLATFORM_WINDOWS" }
 	
 	filter "configurations:Debug"
-		defines "SG_DEBUG"
+		defines { "SIGMA_DEBUG" }
 		symbols "On"
         
         libdirs { OutputPaths["GLFW"]["Debug"] }
@@ -42,7 +42,7 @@ project "Sigma"
         }
 
 	filter "configurations:Release"
-		defines "SG_RELEASE"
+		defines { "SIGMA_RELEASE" }
 		optimize "On"
 
         libdirs { OutputPaths["GLFW"]["Release"] }
