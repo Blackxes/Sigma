@@ -1,5 +1,13 @@
 #pragma once
 
+#include "../Platform/PlatformDetection.h"
+
+#include <memory>
+
+#ifdef SIGMA_PLATFORM_WINDOWS
+    #include <Windows.h>
+#endif
+
 // API Export
 #ifdef SIGMA_PLATFORM_WINDOWS
     #ifdef SIGMA_BUILD_DLL
