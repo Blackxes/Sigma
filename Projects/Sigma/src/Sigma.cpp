@@ -3,17 +3,9 @@
  */
 
 #include "Sigma.h"
+#include "Core/ApplicationBase.h"
 
-#include <iostream>
-#include <Windows.h>
-#include <stb_image.h>
-
-#include <fstream>
-#include <sstream>
-
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
+/*
 int InitOpenGL()
 {
     // Inits glfw
@@ -298,3 +290,4 @@ int InitOpenGL()
 
     return 0;
 }
+*/
