@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Platform/PlatformDetection.h"
+#include "Platform/PlatformDetection.h"
 
 #include <memory>
 
