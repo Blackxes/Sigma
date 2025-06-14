@@ -28,8 +28,6 @@ project "Sigma"
 	filter "system:windows"
 		systemversion "latest"
         symbols "Off"
-
-		defines { "SIGMA_PLATFORM_WINDOWS" }
 	
 	filter "configurations:Debug"
 		defines { "SIGMA_DEBUG" }

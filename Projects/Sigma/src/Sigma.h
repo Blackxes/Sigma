@@ -1,2 +1,5 @@
 
-int __declspec(dllexport) InitOpenGL();
+#pragma once
+
+#include "Core/Base.h"
+#include "Core/ApplicationBase.h"
