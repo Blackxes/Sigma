@@ -1,6 +1,10 @@
 #pragma once
 
 #include "Base.h"
+#include "LayerBase.h"
+#include "LayerCollection.h"
+
+int main(int argc, char** argv);
 
 namespace Sigma
 {
@@ -18,21 +22,27 @@ namespace Sigma
     class SIGMA_API ApplicationBase
     {
     public:
-        ApplicationBase();
         ApplicationBase(const ApplicationCreationOptions& options);
-        ApplicationBase(const ApplicationBase& rhs) = delete;
         virtual ~ApplicationBase();
 
-        virtual bool Init() = 0;
-        virtual bool Run() = 0;
-        virtual bool Stop();
-        virtual bool Shutdown() = 0;
+        void pushLayer(std::shared_ptr<LayerBase> layer);
 
-    protected:
+        virtual bool OnInit() = 0;
+        virtual bool OnEvent() = 0;
+        virtual bool OnShutdown() = 0;
+
+    private:
+        friend int ::main(int argc, char** argv);
+        bool Init();
+        void Run();
+        bool Shutdown();
+
+    private:
         bool m_isRunning = false;
         bool m_initialized = false;
         static inline ApplicationBase* m_instance = nullptr;
         ApplicationCreationOptions creationOptions = {};
+        LayerCollection m_layerCollection;
     };
 
     extern ApplicationBase* CreateApplication(const ApplicationCommandArgs& commandArgs);

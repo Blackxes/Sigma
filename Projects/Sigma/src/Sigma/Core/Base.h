@@ -3,6 +3,7 @@
 #include "Platform/PlatformDetection.h"
 
 #include <memory>
+#include <vector>
 #include <string>
 #include <unordered_map>
 

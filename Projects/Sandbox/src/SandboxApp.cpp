@@ -3,6 +3,10 @@
 #include <Sigma/Core/EntryPoint.h>
 
 #include <iostream>
+#include <memory>
+#include <string>
+
+#include "ExampleLayer.h"
 
 class Sandbox : public Sigma::ApplicationBase
 {
@@ -11,30 +15,28 @@ public:
         : Sigma::ApplicationBase(options)
     {
     }
-
     ~Sandbox() = default;
 
-    bool Init() override
+    bool OnInit() override
     {
-        std::cout << "[Sandbox::Init]" << std::endl;
+        std::cout << "[Sandbox::OnInit]" << std::endl;
 
         return true;
     }
 
-    bool Run() override
+    bool OnEvent() override
     {
-        std::cout << "[Sandbox::Run]" << std::endl;
+        std::cout << "[Sandbox::OnEvent]" << std::endl;
 
         return true;
     }
 
-    bool Shutdown() override
+    bool OnShutdown() override
     {
-        std::cout << "[Sandbox::Shutdown]" << std::endl;
+        std::cout << "[Sandbox::OnShutdown]" << std::endl;
 
         return true;
     }
-
 };
 
 Sigma::ApplicationBase* Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& args)
