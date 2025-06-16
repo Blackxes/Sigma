@@ -4,10 +4,10 @@
 #include "Base.h"
 #include "LayerBase.h"
 
-class LayerBase;
-
 namespace Sigma
 {
+    class LayerBase;
+
     class SIGMA_API LayerCollection
     {
     public:

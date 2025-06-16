@@ -21,6 +21,8 @@ public:
     {
         std::cout << "[Sandbox::OnInit]" << std::endl;
 
+        //this->pushLayer(std::make_shared<ExampleLayer>());
+
         return true;
     }
 
