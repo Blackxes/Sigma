@@ -1,6 +1,17 @@
 
 #include "ExampleLayer.h"
 
+ExampleLayer::ExampleLayer()
+    : Sigma::LayerBase()
+{
+    std::cout << "[ExampleLayer::Constructor]" << std::endl;
+}
+
+ExampleLayer::~ExampleLayer()
+{
+    std::cout << "[ExampleLayer::Destructor]" << std::endl;
+}
+
 void ExampleLayer::OnAttach()
 {
     std::cout << "[ExampleLayer::OnAttach]: OnAttach" << std::endl;

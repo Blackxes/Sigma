@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Base.h"
+#include "RenderWindowBase.h"
 #include "LayerBase.h"
 #include "LayerCollection.h"
 
-int main(int argc, char** argv);
+extern int main(int argc, char** argv);
 
 namespace Sigma
 {
@@ -14,33 +15,36 @@ namespace Sigma
         char** arguments = nullptr;
     };
 
-    struct SIGMA_API ApplicationCreationOptions
+    struct SIGMA_API ApplicationCreationOptions : public RenderWindowCreationOptions
     {
-        const char* title = "My very first Sigma application.. wuhuu!";
     };
 
     class SIGMA_API ApplicationBase
     {
     public:
+        friend int ::main(int argc, char** argv);
+
         ApplicationBase(const ApplicationCreationOptions& options);
         virtual ~ApplicationBase();
 
         void pushLayer(std::shared_ptr<LayerBase> layer);
         static std::shared_ptr<ApplicationBase> Get() { return m_instance; }
 
+        virtual bool OnInit() = 0;
         virtual bool OnEvent() = 0;
 
     private:
-        friend int ::main(int argc, char** argv);
-        bool Init();
+        void Init();
         void Run();
 
     private:
         bool m_isRunning = false;
-        bool m_initialized = false;
-        static inline std::shared_ptr<ApplicationBase> m_instance = nullptr;
+
         ApplicationCreationOptions creationOptions = {};
-        LayerCollection m_layerCollection;
+        static inline std::shared_ptr<ApplicationBase> m_instance = nullptr;
+        static inline std::unique_ptr<RenderWindowBase> m_windowInstance = nullptr;
+
+        LayerCollection m_layerCollection = {};
     };
 
     extern std::shared_ptr<ApplicationBase> CreateApplication(const ApplicationCommandArgs& commandArgs);

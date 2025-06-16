@@ -32,3 +32,10 @@
 #elif
     #define DEBUG_CODE(code)
 #endif
+
+// Code executed on windows systems
+#ifdef SIGMA_PLATFORM_WINDOWS
+    #define ON_WINDOWS(code) code
+#elif
+    #define ON_WINDOWS(code)
+#endif

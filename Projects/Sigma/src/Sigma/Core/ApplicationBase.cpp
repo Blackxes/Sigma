@@ -1,5 +1,6 @@
 
 #include "ApplicationBase.h"
+#include "Platform/RenderWindowCreation.h"
 
 namespace Sigma
 {
@@ -14,24 +15,16 @@ namespace Sigma
         std::cout << "[ApplicationBase::Destructor]" << std::endl;
     }
 
-    bool ApplicationBase::Init()
+    void ApplicationBase::Init()
     {
-        std::cout << "[ApplicationBase::Init]" << std::endl;
+        //this->m_windowInstance = ::CreateRenderWindow(creationOptions);
 
-        this->m_initialized = true;
-        this->m_isRunning = true;
-
-        return true;
+        this->OnInit();
     }
 
     void ApplicationBase::Run()
     {
         std::cout << "[ApplicationBase::Run]" << std::endl;
-
-        if (!this->m_initialized) {
-            std::cout << "[ApplicationBase::Run] Skipped - Not initialized" << std::endl;
-            return;
-        }
 
         if (!this->m_isRunning) {
             std::cout << "[ApplicationBase::Run] Skipped - Running false" << std::endl;

@@ -5,7 +5,7 @@ namespace Sigma
 {
     LayerCollection::~LayerCollection()
     {
-        this->m_layers.clear();
+        //this->m_layers.clear();
     }
 
     void LayerCollection::pushLayer(std::shared_ptr<LayerBase> layer)
