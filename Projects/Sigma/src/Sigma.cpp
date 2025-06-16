@@ -3,7 +3,7 @@
  */
 
 #include "Sigma.h"
-#include "Core/ApplicationBase.h"
+#include "Sigma/Core/ApplicationBase.h"
 
 /*
 int InitOpenGL()

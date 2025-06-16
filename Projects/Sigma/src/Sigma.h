@@ -1,5 +1,5 @@
 
 #pragma once
 
-#include "Core/Base.h"
-#include "Core/ApplicationBase.h"
+#include "Sigma/Core/Base.h"
+#include "Sigma/Core/ApplicationBase.h"

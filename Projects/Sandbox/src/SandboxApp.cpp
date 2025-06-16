@@ -1,8 +1,12 @@
 
 #include <Sigma.h>
-#include <Core/EntryPoint.h>
+#include <Sigma/Core/EntryPoint.h>
 
 #include <iostream>
+#include <memory>
+#include <string>
+
+#include "ExampleLayer.h"
 
 class Sandbox : public Sigma::ApplicationBase
 {
@@ -10,37 +14,27 @@ public:
     Sandbox(const Sigma::ApplicationCreationOptions& options)
         : Sigma::ApplicationBase(options)
     {
+        std::cout << "[Sandbox::Constructor]" << std::endl;
+
+        this->pushLayer(std::make_shared<ExampleLayer>());
+    }
+    ~Sandbox()
+    {
+        std::cout << "[Sandbox::Destructor]" << std::endl;
     }
 
-    ~Sandbox() = default;
-
-    bool Init() override
+    bool OnEvent() override
     {
-        std::cout << "[Sandbox::Init]" << std::endl;
+        std::cout << "[Sandbox::OnEvent]" << std::endl;
 
         return true;
     }
-
-    bool Run() override
-    {
-        std::cout << "[Sandbox::Run]" << std::endl;
-
-        return true;
-    }
-
-    bool Shutdown() override
-    {
-        std::cout << "[Sandbox::Shutdown]" << std::endl;
-
-        return true;
-    }
-
 };
 
-Sigma::ApplicationBase* Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& args)
+std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& args)
 {
     Sigma::ApplicationCreationOptions creationOptions;
     creationOptions.title = "My very fancy Sandbox application";
 
-    return new Sandbox(creationOptions);
+    return std::make_unique<Sandbox>(creationOptions);
 }

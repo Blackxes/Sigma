@@ -1,8 +1,11 @@
 #pragma once
 
-#include "../Platform/PlatformDetection.h"
+#include "Platform/PlatformDetection.h"
 
 #include <memory>
+#include <vector>
+#include <string>
+#include <unordered_map>
 
 #ifdef SIGMA_PLATFORM_WINDOWS
     #include <Windows.h>
@@ -21,4 +24,11 @@
     #endif
 #else
     #error Unsupported Platform. Currently only Windows is supported.
+#endif
+
+// Debug-mode only code
+#ifdef SIGMA_DEBUG
+    #define DEBUG_CODE(code) code
+#elif
+    #define DEBUG_CODE(code)
 #endif

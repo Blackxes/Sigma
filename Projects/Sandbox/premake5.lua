@@ -17,15 +17,15 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
-		defines { "SG_PLATFORM_WINDOWS" }
+		defines { "SIGMA_PLATFORM_WINDOWS" }
 	
 	filter "configurations:Debug"
-		defines "SG_DEBUG"
+		defines { "SIGMA_DEBUG" }
 
         libdirs { getOutputPath("Sigma", "Debug") }
         
     filter "configurations:Release"
-		defines "SG_RELEASE"
+		defines { "SIGMA_RELEASE" }
 		optimize "On"
 
         libdirs { getOutputPath("Sigma", "Release") }
