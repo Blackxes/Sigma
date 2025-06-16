@@ -11,7 +11,7 @@
 class Sandbox : public Sigma::ApplicationBase
 {
 public:
-    Sandbox(const Sigma::ApplicationCreationOptions& options)
+    Sandbox(const Sigma::ApplicationCreationOptions &options)
         : Sigma::ApplicationBase(options)
     {
         std::cout << "[Sandbox::Constructor]" << std::endl;
@@ -31,7 +31,7 @@ public:
     }
 };
 
-std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& args)
+std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::ApplicationCommandArgs &args)
 {
     Sigma::ApplicationCreationOptions creationOptions;
     creationOptions.title = "My very fancy Sandbox application";
