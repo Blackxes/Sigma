@@ -34,7 +34,7 @@ namespace Sigma
             return;
         }
 
-        for (auto layer : this->m_layerCollection) {
+        for (const auto layer : this->m_layerCollection) {
             layer->OnUpdate(0.016f);
         }
     }
