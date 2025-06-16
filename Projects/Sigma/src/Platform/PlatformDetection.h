@@ -1,12 +1,12 @@
 #pragma once
 
 // Windows
-#ifndef SIGMA_PLATFORM_WINDOWS
-    #ifdef _WIN32
-        #define SIGMA_PLATFORM_WINDOWS
-        #define SIGMA_PLATFORM_WINDOWS_32
-    #elif _WIN64
-        #define SIGMA_PLATFORM_WINDOWS
-        #define SIGMA_PLATFORM_WINDOWS_64
-    #endif
+#if !defined(SIGMA_PLATFORM_WINDOWS) && defined(_WIN32)
+    #define SIGMA_PLATFORM_WINDOWS
+#endif
+
+#if defined(SIGMA_PLATFORM_WINDOWS) && defined(_WIN64)
+    #define SIGMA_PLATFORM_WINDOWS_64
+#else
+    #error "Windows x84 systems are not supported"
 #endif
