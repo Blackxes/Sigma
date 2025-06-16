@@ -14,16 +14,13 @@ public:
     Sandbox(const Sigma::ApplicationCreationOptions& options)
         : Sigma::ApplicationBase(options)
     {
+        std::cout << "[Sandbox::Constructor]" << std::endl;
+
+        this->pushLayer(std::make_shared<ExampleLayer>());
     }
-    ~Sandbox() = default;
-
-    bool OnInit() override
+    ~Sandbox()
     {
-        std::cout << "[Sandbox::OnInit]" << std::endl;
-
-        //this->pushLayer(std::make_shared<ExampleLayer>());
-
-        return true;
+        std::cout << "[Sandbox::Destructor]" << std::endl;
     }
 
     bool OnEvent() override
@@ -32,19 +29,12 @@ public:
 
         return true;
     }
-
-    bool OnShutdown() override
-    {
-        std::cout << "[Sandbox::OnShutdown]" << std::endl;
-
-        return true;
-    }
 };
 
-Sigma::ApplicationBase* Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& args)
+std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& args)
 {
     Sigma::ApplicationCreationOptions creationOptions;
     creationOptions.title = "My very fancy Sandbox application";
 
-    return new Sandbox(creationOptions);
+    return std::make_unique<Sandbox>(creationOptions);
 }

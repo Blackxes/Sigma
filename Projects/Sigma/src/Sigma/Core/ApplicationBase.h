@@ -26,24 +26,22 @@ namespace Sigma
         virtual ~ApplicationBase();
 
         void pushLayer(std::shared_ptr<LayerBase> layer);
+        static std::shared_ptr<ApplicationBase> Get() { return m_instance; }
 
-        virtual bool OnInit() = 0;
         virtual bool OnEvent() = 0;
-        virtual bool OnShutdown() = 0;
 
     private:
         friend int ::main(int argc, char** argv);
         bool Init();
         void Run();
-        bool Shutdown();
 
     private:
         bool m_isRunning = false;
         bool m_initialized = false;
-        static inline ApplicationBase* m_instance = nullptr;
+        static inline std::shared_ptr<ApplicationBase> m_instance = nullptr;
         ApplicationCreationOptions creationOptions = {};
         LayerCollection m_layerCollection;
     };
 
-    extern ApplicationBase* CreateApplication(const ApplicationCommandArgs& commandArgs);
+    extern std::shared_ptr<ApplicationBase> CreateApplication(const ApplicationCommandArgs& commandArgs);
 }

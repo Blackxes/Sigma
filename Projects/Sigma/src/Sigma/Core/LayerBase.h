@@ -11,7 +11,8 @@ namespace Sigma
     class SIGMA_API LayerBase
     {
     public:
-        LayerBase(const std::string& name = "Unnamed Layer") : m_name(name.c_str()) {}
+        LayerBase() : m_name("Unnamed Layer") {}
+        LayerBase(const std::string& name) : m_name(name) {}
         ~LayerBase() {}
 
         const std::string GetName() { return this->m_name; }
