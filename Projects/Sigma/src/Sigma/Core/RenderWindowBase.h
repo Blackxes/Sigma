@@ -13,7 +13,7 @@ namespace Sigma
         bool fullScreen = false;
     };
 
-    class RenderWindowBase
+    class SIGMA_API RenderWindowBase
     {
     public:
         RenderWindowBase() { this->m_windowCount++; }
