@@ -23,6 +23,13 @@ public:
         std::cout << "[Sandbox::Destructor]" << std::endl;
     }
 
+    bool OnInit() override
+    {
+        std::cout << "[Sandbox::Init]" << std::endl;
+
+        return true;
+    }
+
     bool OnEvent() override
     {
         std::cout << "[Sandbox::OnEvent]" << std::endl;
@@ -35,6 +42,8 @@ std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::Ap
 {
     Sigma::ApplicationCreationOptions creationOptions;
     creationOptions.title = "My very fancy Sandbox application";
+    creationOptions.dimensions = { 600, 300 };
+    creationOptions.fullScreen = false;
 
-    return std::make_unique<Sandbox>(creationOptions);
+    return std::make_shared<Sandbox>(creationOptions);
 }

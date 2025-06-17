@@ -2,7 +2,7 @@ project "Sandbox"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++23"
-    staticruntime "On"
+    staticruntime "Off"
 
     targetdir(getOutputPath())
     objdir(getIntermediatePath())
@@ -18,6 +18,7 @@ project "Sandbox"
 	filter "system:windows"
 		systemversion "latest"
 		defines { "SIGMA_PLATFORM_WINDOWS" }
+        runtime "Debug"
 	
 	filter "configurations:Debug"
 		defines { "SIGMA_DEBUG" }
@@ -27,5 +28,6 @@ project "Sandbox"
     filter "configurations:Release"
 		defines { "SIGMA_RELEASE" }
 		optimize "On"
+        runtime "Release"
 
         libdirs { getOutputPath("Sigma", "Release") }

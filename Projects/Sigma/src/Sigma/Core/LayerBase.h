@@ -13,7 +13,7 @@ namespace Sigma
     public:
         LayerBase() : m_name("Unnamed Layer") {}
         LayerBase(const std::string& name) : m_name(name) {}
-        ~LayerBase() {}
+        virtual ~LayerBase() {}
 
         const std::string GetName() { return this->m_name; }
 

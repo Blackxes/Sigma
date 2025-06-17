@@ -20,7 +20,7 @@ namespace Sigma
         Vector2D<T>& operator/=(const Vector2D<T>& b) { this->x /= b.x; this->y /= b.y; }
     };
 
-    // Alias
+    // Aliases
     using Vector2df = Vector2D<float>;
     using Vector2dd = Vector2D<double>;
     using Vector2di = Vector2D<int>;

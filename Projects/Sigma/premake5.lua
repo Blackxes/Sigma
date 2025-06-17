@@ -27,11 +27,11 @@ project "Sigma"
 	
 	filter "system:windows"
 		systemversion "latest"
-        symbols "Off"
 	
 	filter "configurations:Debug"
 		defines { "SIGMA_DEBUG" }
 		symbols "On"
+        runtime "Debug"
         
         libdirs { OutputPaths["GLFW"]["Debug"] }
 
@@ -42,6 +42,7 @@ project "Sigma"
 	filter "configurations:Release"
 		defines { "SIGMA_RELEASE" }
 		optimize "On"
+        runtime "Release"
 
         libdirs { OutputPaths["GLFW"]["Release"] }
 

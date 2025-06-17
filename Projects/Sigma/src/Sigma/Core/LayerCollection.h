@@ -30,6 +30,6 @@ namespace Sigma
         std::vector<std::shared_ptr<LayerBase>>::const_reverse_iterator rend() const { return this->m_layers.rend(); }
 
     private:
-        std::vector<std::shared_ptr<LayerBase>> m_layers = {};
+        std::vector<std::shared_ptr<LayerBase>> m_layers;
     };
 }

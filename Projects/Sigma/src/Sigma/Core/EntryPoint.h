@@ -1,14 +1,15 @@
-#pragma once
 
-#include "ApplicationBase.h"
-
-extern std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::ApplicationCommandArgs& commandArgs);
+#include "Bootstrap.h"
 
 int main(int argc, char** argv)
 {
-    auto app = Sigma::CreateApplication({ argc, argv });
+    // @todo Profiling
+    auto app = Sigma::CreateApplication({ 0, {} });
 
+    // @todo Profiling
     app->Init();
+
+    // @todo Profiling
     app->Run();
 
     return 0;

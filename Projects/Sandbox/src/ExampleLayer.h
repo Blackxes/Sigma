@@ -5,7 +5,8 @@
 class ExampleLayer : public Sigma::LayerBase
 {
 public:
-    ExampleLayer() : Sigma::LayerBase() {};
+    ExampleLayer();
+    virtual ~ExampleLayer();
 
     virtual void OnAttach() override;
     virtual void OnDetach() override;
