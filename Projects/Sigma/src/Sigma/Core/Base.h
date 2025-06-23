@@ -3,8 +3,14 @@
 #include "Platform/PlatformDetection.h"
 
 #include <memory>
-#include <vector>
 #include <string>
+
+#include <type_traits>
+#include <concepts>
+#include <optional>
+#include <chrono>
+
+#include <vector>
 #include <unordered_map>
 
 #ifdef SIGMA_PLATFORM_WINDOWS
@@ -39,3 +45,8 @@
 #elif
     #define ON_WINDOWS(code)
 #endif
+
+// Type aliases
+using uint = unsigned int;
+
+using clock_type = std::chrono::high_resolution_clock;

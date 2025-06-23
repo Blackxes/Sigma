@@ -28,7 +28,7 @@ void ExampleLayer::OnDetach()
 
 void ExampleLayer::OnUpdate(const float delta)
 {
-    std::cout << "[ExampleLayer::OnUpdate]: OnUpdate" << std::endl;
+    std::cout << "[ExampleLayer::OnUpdate]: OnUpdate: " << printf("%.8f", delta) << std::endl;
 
     return;
 }
