@@ -4,6 +4,7 @@
 #include "RenderWindowBase.h"
 #include "LayerBase.h"
 #include "LayerCollection.h"
+#include "Clock.h"
 
 extern int main(int argc, char** argv);
 
@@ -17,6 +18,7 @@ namespace Sigma
 
     struct SIGMA_API ApplicationCreationOptions : public RenderWindowCreationOptions
     {
+        uint targetUps = 0;
     };
 
     class SIGMA_API ApplicationBase
@@ -38,9 +40,10 @@ namespace Sigma
         void Run();
 
     private:
-        bool m_isRunning = false;
+        bool m_isRunning = true;
+        Clock m_clock;
 
-        ApplicationCreationOptions creationOptions = {};
+        ApplicationCreationOptions m_creationOptions = {};
         static inline std::shared_ptr<ApplicationBase> m_instance = nullptr;
         static inline std::unique_ptr<RenderWindowBase> m_windowInstance = nullptr;
 
