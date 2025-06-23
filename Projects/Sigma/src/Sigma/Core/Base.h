@@ -6,7 +6,6 @@
 #include <string>
 
 #include <type_traits>
-#include <cmath>
 #include <concepts>
 #include <optional>
 #include <chrono>
