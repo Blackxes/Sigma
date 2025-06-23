@@ -17,9 +17,9 @@ namespace Sigma
 
 	void ApplicationBase::Init()
 	{
-		//this->m_windowInstance = ::CreateRenderWindow(creationOptions);
+		m_windowInstance = ::CreateRenderWindow(m_creationOptions);
 
-		this->OnInit();
+		OnInit();
 	}
 
 	void ApplicationBase::Run()
@@ -44,7 +44,7 @@ namespace Sigma
 				continue;
 			}
 
-			for (const auto layer : m_layerCollection)
+			for (const auto& layer : m_layerCollection)
 			{
 				layer->OnUpdate(currentTimer);
 			}
@@ -53,8 +53,8 @@ namespace Sigma
 		}
 	}
 
-	void ApplicationBase::pushLayer(std::shared_ptr<LayerBase> layer)
+	void ApplicationBase::PushLayer(std::shared_ptr<LayerBase> layer)
 	{
-		m_layerCollection.pushLayer(layer);
+		m_layerCollection.PushLayer(layer);
 	}
 }

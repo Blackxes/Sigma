@@ -16,14 +16,14 @@ namespace Sigma
     class SIGMA_API RenderWindowBase
     {
     public:
-        RenderWindowBase() { this->m_windowCount++; }
-        virtual ~RenderWindowBase() { this->m_windowCount--; }
+        RenderWindowBase() { m_windowCount++; }
+        virtual ~RenderWindowBase() { m_windowCount--; }
 
         virtual void* CreateRenderWindow(const RenderWindowCreationOptions& options) = 0;
 
         template<class T>
-        T* GetWindowHandle() { return this->GetTypeExplicitRenderWindowHandle(); }
-        int GetWindowCount() const { return this->m_windowCount; }
+        T* GetWindowHandle() { return GetTypeExplicitRenderWindowHandle(); }
+        int GetWindowCount() const { return m_windowCount; }
 
     protected:
         virtual void* GetTypeExplicitRenderWindowHandle() = 0;

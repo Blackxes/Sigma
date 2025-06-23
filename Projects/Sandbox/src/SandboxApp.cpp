@@ -16,7 +16,7 @@ public:
     {
         std::cout << "[Sandbox::Constructor]" << std::endl;
 
-        this->pushLayer(std::make_shared<ExampleLayer>());
+        this->PushLayer(std::make_shared<ExampleLayer>());
     }
     ~Sandbox()
     {

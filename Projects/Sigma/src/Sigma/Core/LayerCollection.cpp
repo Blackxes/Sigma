@@ -5,39 +5,39 @@ namespace Sigma
 {
     LayerCollection::~LayerCollection()
     {
-        //this->m_layers.clear();
+        m_layers.clear();
     }
 
-    void LayerCollection::pushLayer(std::shared_ptr<LayerBase> layer)
+    void LayerCollection::PushLayer(std::shared_ptr<LayerBase> layer)
     {
-        if (this->hasLayer(layer)) {
+        if (HasLayer(layer)) {
             return;
         }
 
         m_layers.push_back(layer);
     }
 
-    void LayerCollection::activateLayer(const std::shared_ptr<LayerBase> layer)
+    void LayerCollection::ActivateLayer(const std::shared_ptr<LayerBase> layer)
     {
-        if (!this->hasLayer(layer)) {
+        if (!HasLayer(layer)) {
             return;
         }
 
         layer->activateLayer();
     }
 
-    void LayerCollection::deactivateLayer(const std::shared_ptr<LayerBase> layer)
+    void LayerCollection::DeactivateLayer(const std::shared_ptr<LayerBase> layer)
     {
-        if (!this->hasLayer(layer)) {
+        if (!HasLayer(layer)) {
             return;
         }
 
         layer->deactivateLayer();
     }
 
-    bool LayerCollection::hasLayer(std::shared_ptr<LayerBase> layer)
+    bool LayerCollection::HasLayer(std::shared_ptr<LayerBase> layer)
     {
-        auto it = std::find(this->m_layers.begin(), this->m_layers.end(), layer);
+        auto it = std::find(m_layers.begin(), m_layers.end(), layer);
 
         return it != this->m_layers.end();
     }

@@ -29,7 +29,7 @@ namespace Sigma
         ApplicationBase(const ApplicationCreationOptions& options);
         virtual ~ApplicationBase();
 
-        void pushLayer(std::shared_ptr<LayerBase> layer);
+        void PushLayer(std::shared_ptr<LayerBase> layer);
         static std::shared_ptr<ApplicationBase> Get() { return m_instance; }
 
         virtual bool OnInit() = 0;

@@ -13,7 +13,7 @@ namespace Sigma
     bool WindowsRenderWindow::InitOpenGL()
     {
         // @todo proper error handling
-        if (this->m_initialized) {
+        if (m_initialized) {
             return true;
         }
 
@@ -28,24 +28,24 @@ namespace Sigma
         );
 
 
-        this->m_lastErrorCode = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
-        this->m_initialized = true;
+        m_lastErrorCode = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+        m_initialized = true;
 
-        return this->m_initialized;
+        return m_initialized;
     }
 
     void* WindowsRenderWindow::CreateRenderWindow(const RenderWindowCreationOptions& options)
     {
-        if (this->m_initialized) {
+        if (m_initialized) {
             return this->GetTypeExplicitRenderWindowHandle();
         }
 
-        if (this->m_lastErrorCode) {
+        if (m_lastErrorCode) {
             // @todo proper error handling
             return nullptr;
         }
 
-        this->m_windowHandle = glfwCreateWindow(
+        m_windowHandle = glfwCreateWindow(
             options.dimensions.x,
             options.dimensions.y,
             options.title,
@@ -53,19 +53,19 @@ namespace Sigma
             nullptr
         );
 
-        if (this->m_windowHandle == nullptr) {
+        if (m_windowHandle == nullptr) {
             // @todo proper error handling
             glfwTerminate();
             return nullptr;
         }
 
-        glfwMakeContextCurrent(this->m_windowHandle);
+        glfwMakeContextCurrent(m_windowHandle);
 
-        return (void*) this->m_windowHandle;
+        return (void*) m_windowHandle;
     }
 
     void* WindowsRenderWindow::GetTypeExplicitRenderWindowHandle()
     {
-        return (void*) this->m_windowHandle;
+        return (void*) m_windowHandle;
     }
 }
