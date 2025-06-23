@@ -44,7 +44,7 @@ std::shared_ptr<Sigma::ApplicationBase> Sigma::CreateApplication(const Sigma::Ap
     creationOptions.title = "My very fancy Sandbox application";
     creationOptions.dimensions = { 600, 300 };
     creationOptions.fullScreen = false;
-    creationOptions.targetUps = 10000;
+    creationOptions.targetUps = 120;
 
     return std::make_shared<Sandbox>(creationOptions);
 }
