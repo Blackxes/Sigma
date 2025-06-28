@@ -24,6 +24,16 @@ project "Sigma"
     links { "glfw3.lib", "opengl32.lib" }
 
     defines { "GLFW_INCLUDE_NONE", "SIGMA_BUILD_DLL" }
+
+    pchheader "sigmapch.h"
+    pchsource (IncludePaths["Sigma"] .. "sigmapch.cpp")
+
+    -- Disabling pch for glad will make is sad
+    filter "files:*/**/glad.c"
+        flags { "NoPCH" }
+
+    filter "files:*/**/stb_image.cpp"
+        flags { "NoPCH" }
 	
 	filter "system:windows"
 		systemversion "latest"
