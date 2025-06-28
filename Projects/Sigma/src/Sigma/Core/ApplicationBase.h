@@ -18,7 +18,7 @@ namespace Sigma
 
     struct SIGMA_API ApplicationCreationOptions : public RenderWindowCreationOptions
     {
-        uint targetUps = 0;
+        uint targetUps = 1;
     };
 
     class SIGMA_API ApplicationBase
