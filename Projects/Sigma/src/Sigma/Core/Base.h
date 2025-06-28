@@ -18,7 +18,7 @@
 // Debug-mode only code
 #ifdef SIGMA_DEBUG
     #define DEBUG_CODE(code) code
-#elif
+#elif SIGMA_RELEASE
     #define DEBUG_CODE(code)
 #endif
 
