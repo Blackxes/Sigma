@@ -7,13 +7,13 @@ namespace Sigma
 {
 	ApplicationBase::ApplicationBase(const ApplicationCreationOptions &creationOptions)
 	{
-		//std::cout << "[ApplicationBase::Constructor(ApplicationCreationOptions)]" << std::endl;
+		std::cout << "[ApplicationBase::Constructor(ApplicationCreationOptions)]" << std::endl;
 		m_creationOptions = creationOptions;
 	}
 
 	ApplicationBase::~ApplicationBase()
 	{
-		//std::cout << "[ApplicationBase::Destructor]" << std::endl;
+		std::cout << "[ApplicationBase::Destructor]" << std::endl;
 	}
 
 	void ApplicationBase::Init()
@@ -25,11 +25,11 @@ namespace Sigma
 
 	void ApplicationBase::Run()
 	{
-		//std::cout << "[ApplicationBase::Run]" << std::endl;
+		std::cout << "[ApplicationBase::Run]" << std::endl;
 
 		if (!m_isRunning || m_creationOptions.targetUps == 0)
 		{
-			//std::cout << "[ApplicationBase::Run] Skipped - Running false" << std::endl;
+			std::cout << "[ApplicationBase::Run] Skipped - Running false" << std::endl;
 			return;
 		}
 
