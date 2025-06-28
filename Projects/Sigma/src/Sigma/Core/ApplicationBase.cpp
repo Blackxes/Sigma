@@ -1,4 +1,5 @@
 
+#include "sigmapch.h"
 #include "ApplicationBase.h"
 #include "Platform/RenderWindowCreation.h"
 
