@@ -51,6 +51,16 @@ namespace Sigma
 			}
 
 			currentTimer -= 1.0f / m_creationOptions.targetUps;
+
+			// Sleep thread to relief cpu
+			float remainingTime = currentTimer - 1 / m_creationOptions.targetUps;
+
+			if (remainingTime > 0.0f)
+			{
+				std::this_thread::sleep_for(
+					std::chrono::microseconds((int) (remainingTime * 1'000'000))
+				);
+			}
 		}
 	}
 
