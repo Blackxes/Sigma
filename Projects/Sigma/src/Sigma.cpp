@@ -2,6 +2,7 @@
  * @author Alexander Bassov
  */
 
+#include "sigmapch.h"
 #include "Sigma.h"
 #include "Sigma/Core/ApplicationBase.h"
 

@@ -1,4 +1,6 @@
 
+#include <iostream>
+
 #include "ExampleLayer.h"
 
 ExampleLayer::ExampleLayer()

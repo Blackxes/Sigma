@@ -32,6 +32,11 @@ namespace Sigma
 			return *this;
 		}
 
+		void Reset()
+		{
+			m_lastTime.reset();
+		}
+
 		float InSeconds() const { return (float) m_lastDelta.count() / 1'000'000'000; }
 		float InMilliseconds() const { return (float) m_lastDelta.count() / 1'000'000; }
 		float InMicroseconds() const { return (float) m_lastDelta.count() / 1'000; }

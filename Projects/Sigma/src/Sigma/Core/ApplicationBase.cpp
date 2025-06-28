@@ -1,4 +1,5 @@
 
+#include "sigmapch.h"
 #include "ApplicationBase.h"
 #include "Platform/RenderWindowCreation.h"
 
@@ -33,23 +34,37 @@ namespace Sigma
 		}
 
 		float currentTimer = 0;
+		float timeStep = 1.0f / m_creationOptions.targetUps;
 
 		while (m_isRunning)
 		{
 			float delta = m_clock.Update().InSeconds();
 			currentTimer += delta;
 
-			if (currentTimer < 1.0f / m_creationOptions.targetUps)
+			if (currentTimer < timeStep)
 			{
 				continue;
 			}
 
-			for (const auto& layer : m_layerCollection)
+			while(currentTimer > timeStep)
 			{
-				layer->OnUpdate(currentTimer);
+				for (const auto &layer : m_layerCollection)
+				{
+					layer->OnUpdate(timeStep);
+				}
+
+				currentTimer -= timeStep;
 			}
 
-			currentTimer -= 1.0f / m_creationOptions.targetUps;
+			// Sleep thread to relief cpu
+			float remainingTime = timeStep - currentTimer;
+
+			if (remainingTime > 0.0f)
+			{
+				std::this_thread::sleep_for(
+					std::chrono::microseconds((int) remainingTime * 1'000'000)
+				);
+			}
 		}
 	}
 

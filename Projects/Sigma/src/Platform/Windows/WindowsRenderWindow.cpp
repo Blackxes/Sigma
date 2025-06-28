@@ -1,4 +1,5 @@
 
+#include "sigmapch.h"
 #include "WindowsRenderWindow.h"
 
 namespace Sigma
