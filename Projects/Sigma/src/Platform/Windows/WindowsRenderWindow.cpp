@@ -28,7 +28,6 @@ namespace Sigma
             glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
         );
 
-
         m_lastErrorCode = gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
         m_initialized = true;
 
