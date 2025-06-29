@@ -4,17 +4,21 @@
 
 #include <memory>
 #include <string>
+#include <unordered_map>
+#include <vector>
 
 #include <type_traits>
+#include <typeindex>
+#include <typeinfo>
 #include <concepts>
 #include <optional>
+#include <functional>
+
 #include <chrono>
 #include <thread>
+
 #include <print>
 #include <format>
-
-#include <vector>
-#include <unordered_map>
 
 #ifdef SIGMA_PLATFORM_WINDOWS
 	#include <Windows.h>
